@@ -1,11 +1,17 @@
 # Download Android source with local_manifests
  Refer to http://source.android.com/source/downloading.html
 
- $ repo init -u https://android.googlesource.com/platform/manifest -b android-13.0.0_r8
+ $ mkdir -p ~/bin
+ $ curl https://storage.googleapis.com/git-repo-downloads/repo-1 > ~/bin/repo
+ $ chmod a+x ~/bin/repo
+ $ python3 ~/bin/repo init -u https://android.googlesource.com/platform/manifest -b android-13.0.0_r8
  $ git clone https://github.com/android-rpi/local_manifests .repo/local_manifests -b arpi-13
- $ repo sync
+ $ python3 ~/bin/repo sync
 
 # Build for Raspberry Pi 4
  https://github.com/android-rpi/device_arpi_rpi4
 
 Use -j[n] option on sync & build steps, if build host has a good number of CPU cores.
+
+# if repo having issue, try apply this: 
+https://stackoverflow.com/questions/65193998/syntaxerror-invalid-syntax-to-repo-init-in-the-aosp-code
